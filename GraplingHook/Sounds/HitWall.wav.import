@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HitWall.wav-08a9157dc79eb0859fafccf8304f6db1.sample"
+
+[deps]
+
+source_file="res://Sounds/HitWall.wav"
+dest_files=[ "res://.import/HitWall.wav-08a9157dc79eb0859fafccf8304f6db1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

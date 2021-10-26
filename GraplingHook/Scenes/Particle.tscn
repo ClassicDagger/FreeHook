@@ -1,0 +1,86 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Scripts/Particle.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/LandingPuff/LandingPuff2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/LandingPuff/LandingPuff3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/LandingPuff/LandingPuff1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/LandingPuff/LandingPuff4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/StepParticle/StepParticle1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/StepParticle/StepParticle2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/StepParticle/StepParticle3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/StepParticle/StepParticle4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/HookParticle/HookParticle1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/HookParticle/HookParticle3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/HookParticle/HookParticle2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/HookParticle/HookParticle4.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/LargePuff/LargePuff2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/LargePuff/LargePuff4.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/LargePuff/LargePuff3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/LargePuff/LargePuff5.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/LargePuff/LargePuff1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying6.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Player/BirdFlying/Birdflying5.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Stars/Stars3.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Stars/Stars5.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Stars/Stars4.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Stars/Stars1.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Stars/Stars2.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Stars/Stars6.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Bonk/Bonk5.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Bonk/Bonk6.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Bonk/Bonk2.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Bonk/Bonk3.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Bonk/Bonk1.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Bonk/Bonk4.png" type="Texture" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Bird",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "LargePuff",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "LandingPuff",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Step",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "Stars",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "HookParticle",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "Bonk",
+"speed": 14.0
+} ]
+
+[node name="Particle" type="AnimatedSprite"]
+z_index = 9
+frames = SubResource( 1 )
+animation = "Bonk"
+frame = 5
+playing = true
+script = ExtResource( 1 )
+
+[connection signal="animation_finished" from="." to="." method="FinishedAnimation"]

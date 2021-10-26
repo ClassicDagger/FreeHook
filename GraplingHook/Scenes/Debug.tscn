@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Terrain/platform_Sand.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/PlayerBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Terrain/platform_Stone.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/PinLoop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/WoodBeam.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29, 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25, 2 )
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
+
+[node name="Debug" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Cursor" parent="." instance=ExtResource( 6 )]
+
+[node name="PlayerBody" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 16 )
+
+[node name="PinLoop" parent="." instance=ExtResource( 7 )]
+position = Vector2( 77, 53 )
+
+[node name="PinLoop2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 109, 5 )
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="SandPlatform" type="Sprite" parent="Terrain"]
+position = Vector2( 75, 128 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
+
+[node name="SandPlatform7" type="Sprite" parent="Terrain"]
+position = Vector2( 27, 184 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform7/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
+
+[node name="SandPlatform2" type="Sprite" parent="Terrain"]
+position = Vector2( 134, 128 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform2/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
+
+[node name="SandPlatform3" type="Sprite" parent="Terrain"]
+position = Vector2( 193, 118 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform3/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+
+[node name="SandPlatform4" type="Sprite" parent="Terrain"]
+position = Vector2( 139, 73 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform4/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+
+[node name="SandPlatform5" type="Sprite" parent="Terrain"]
+position = Vector2( 167, 16 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform5/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+
+[node name="SandPlatform6" type="Sprite" parent="Terrain"]
+position = Vector2( 175, 40 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/SandPlatform6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/SandPlatform6/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+
+[node name="WoodBeam" parent="Terrain" instance=ExtResource( 8 )]
+position = Vector2( 32, 16 )
+
+[node name="WoodBeam2" parent="Terrain" instance=ExtResource( 8 )]
+position = Vector2( 40, 64 )
+
+[node name="ViewportTexture" type="TextureRect" parent="."]
+margin_right = 256.0
+margin_bottom = 144.0
+texture = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 256, 144 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2( 0, 8 )
+current = true
+limit_left = 0
+limit_bottom = 144
+smoothing_enabled = true
+smoothing_speed = 6.0
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true

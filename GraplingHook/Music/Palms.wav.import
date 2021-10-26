@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Palms.wav-1db083d6d721d12d5987d8c87996d7ef.sample"
+
+[deps]
+
+source_file="res://Music/Palms.wav"
+dest_files=[ "res://.import/Palms.wav-1db083d6d721d12d5987d8c87996d7ef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

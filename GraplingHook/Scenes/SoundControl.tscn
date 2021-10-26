@@ -1,0 +1,120 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/SoundControl.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/ChargeGraple.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Fell.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Step.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Sand.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/ThrowGraple.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/HitWall.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/HitGrapleNew.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/NewClick.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/NewHover.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/OldManTalk.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Tweet.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/OpenCage.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/ChainHurt.wav" type="AudioStream" id=14]
+[ext_resource path="res://Music/Dungeon.wav" type="AudioStream" id=15]
+[ext_resource path="res://Music/Dunes.wav" type="AudioStream" id=16]
+[ext_resource path="res://Music/Caves.wav" type="AudioStream" id=17]
+[ext_resource path="res://Music/Palms.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/Time.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/HookTravel.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/GemGet.wav" type="AudioStream" id=21]
+[ext_resource path="res://Music/Introduction.wav" type="AudioStream" id=22]
+
+[node name="SoundControl" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="ChargeGraple" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.0
+pitch_scale = 1.3
+
+[node name="ThrowGraple" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 0.5
+
+[node name="GrapleHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -2.0
+
+[node name="Fell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.0
+pitch_scale = 1.5
+
+[node name="HitWall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.3
+
+[node name="SandStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="StoneStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 0.8
+
+[node name="UIHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -6.0
+pitch_scale = 1.3
+
+[node name="UIClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
+
+[node name="OldManTalking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -8.0
+pitch_scale = 1.2
+
+[node name="Tweet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="OpenCage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="ChainHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="Time" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="HookTravel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+pitch_scale = 1.2
+
+[node name="GemGet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -2.0
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -4.0
+
+[node name="Music" type="Node" parent="."]
+
+[node name="MusicDungeon" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 15 )
+volume_db = 1.0
+
+[node name="MusicCaves" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 17 )
+
+[node name="MusicDunes" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 16 )
+
+[node name="MusicFortress" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 18 )

@@ -1,0 +1,179 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Sprites/MainScreen.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/MainScreenCharacter.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/UIButtonHover.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/UIButtonDisabled.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/UIButtonDown.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/UIButtonUp.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/UI/LongGlyphSpeak-export.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation4.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/SoundControl.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation6.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation7.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation8.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation9.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation10.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation5.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation3.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation11.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation32.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation28.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation24.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation18.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation34.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation16.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation26.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation23.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation20.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation29.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation30.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation13.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation17.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation21.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation19.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation25.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/LogoAnimation/FreeHookAnimation33.png" type="Texture" id=44]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 9 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 21 ), ExtResource( 38 ), ExtResource( 30 ), ExtResource( 40 ), ExtResource( 27 ), ExtResource( 42 ), ExtResource( 35 ), ExtResource( 41 ), ExtResource( 41 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 43 ), ExtResource( 33 ), ExtResource( 24 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 22 ), ExtResource( 44 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "LogoAnimation",
+"speed": 12.0
+} ]
+
+[node name="Background" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 11 )
+
+[node name="SoundControl" parent="." instance=ExtResource( 10 )]
+
+[node name="Character" type="Sprite" parent="."]
+position = Vector2( 0, -3 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Cursor" parent="." instance=ExtResource( 7 )]
+
+[node name="Logo" type="AnimatedSprite" parent="."]
+position = Vector2( 200, 27 )
+frames = SubResource( 1 )
+animation = "LogoAnimation"
+
+[node name="Credits" type="Label" parent="."]
+margin_left = 159.0
+margin_top = 109.0
+margin_right = 244.0
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Programming, Art, Music, and Design by:
+Tommy H."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New" type="TextureButton" parent="."]
+margin_left = 177.0
+margin_top = 47.0
+margin_right = 224.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewText" type="Label" parent="New"]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "NEW"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="TextureButton" parent="."]
+margin_left = 177.0
+margin_top = 66.0
+margin_right = 224.0
+margin_bottom = 81.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueText" type="Label" parent="Continue"]
+margin_left = 2.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "CONTINUE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 177.0
+margin_top = 86.0
+margin_right = 224.0
+margin_bottom = 101.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitText" type="Label" parent="Exit"]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "EXIT"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterTween" type="Tween" parent="."]
+
+[node name="LogoTween" type="Tween" parent="."]
+
+[node name="StarSpawns" type="Position2D" parent="."]
+position = Vector2( 200, 30 )
+
+[node name="StarSpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="animation_finished" from="Logo" to="." method="FinishedAnimation"]
+[connection signal="mouse_entered" from="New" to="." method="HoverButton"]
+[connection signal="pressed" from="New" to="." method="PressedNew"]
+[connection signal="mouse_entered" from="Continue" to="." method="HoverButton"]
+[connection signal="pressed" from="Continue" to="." method="PressedContinue"]
+[connection signal="mouse_entered" from="Exit" to="." method="HoverButton"]
+[connection signal="pressed" from="Exit" to="." method="PressedExit"]
+[connection signal="timeout" from="StarSpawnTimer" to="." method="SpawnStars"]

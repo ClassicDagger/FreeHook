@@ -1,0 +1,163 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Sprites/UI/OptionsMenu.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/FreeHookLogo.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/OptionsMusicUp.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/OptionsSoundsUp.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/OptionsMenu.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/UI/OptionsSoundsHover.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/OptionsSoundsDisabled.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/OptionsExitButtonHover.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/OptionsMusicHover.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/OptionsMusicDisabled.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/OptionsExitButtonUp.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/OptionsExitButtonDown.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/UIButtonDown.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/UIButtonUp.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/UIButtonHover.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/LongGlyphSpeak-export.fnt" type="BitmapFont" id=16]
+[ext_resource path="res://Sprites/UI/BirdCells.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/BirdFortress.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/UI/BirdCaves.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/UI/BirdDunes.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/BirdPalm.png" type="Texture" id=21]
+
+[node name="OptionsMenu" type="Control"]
+pause_mode = 2
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 53, 8 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="MusicButton" type="TextureButton" parent="."]
+margin_left = 80.0
+margin_top = 53.0
+margin_right = 95.0
+margin_bottom = 70.0
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundButton" type="TextureButton" parent="."]
+margin_left = 95.0
+margin_top = 54.0
+margin_right = 110.0
+margin_bottom = 71.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 176.0
+margin_top = 5.0
+margin_right = 187.0
+margin_bottom = 18.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="TextureButton" parent="."]
+margin_left = 71.0
+margin_top = 37.0
+margin_right = 118.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu"]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Main Menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnlockedBirds" type="Node2D" parent="."]
+position = Vector2( -1, -2 )
+
+[node name="BirdCells" type="Sprite" parent="UnlockedBirds"]
+position = Vector2( 75, 79 )
+texture = ExtResource( 17 )
+
+[node name="BirdCaves" type="Sprite" parent="UnlockedBirds"]
+position = Vector2( 86, 79 )
+texture = ExtResource( 19 )
+
+[node name="BirdDunes" type="Sprite" parent="UnlockedBirds"]
+position = Vector2( 97, 79 )
+texture = ExtResource( 20 )
+
+[node name="BirdFortress" type="Sprite" parent="UnlockedBirds"]
+position = Vector2( 108, 79 )
+texture = ExtResource( 18 )
+
+[node name="BirdPalm" type="Sprite" parent="UnlockedBirds"]
+position = Vector2( 119, 79 )
+texture = ExtResource( 21 )
+
+[node name="Time" type="Label" parent="."]
+margin_top = 92.0
+margin_right = 191.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 16 )
+text = "123"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gems" type="Label" parent="."]
+margin_left = 74.0
+margin_top = 83.0
+margin_right = 118.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 16 )
+text = "$1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="MusicButton" to="." method="HoverButton"]
+[connection signal="toggled" from="MusicButton" to="." method="MusicToggle"]
+[connection signal="mouse_entered" from="SoundButton" to="." method="HoverButton"]
+[connection signal="toggled" from="SoundButton" to="." method="SoundToggle"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="HoverButton"]
+[connection signal="pressed" from="ExitButton" to="." method="ExitPressed"]
+[connection signal="mouse_entered" from="Menu" to="." method="HoverButton"]
+[connection signal="pressed" from="Menu" to="." method="PressedMainMenu"]
