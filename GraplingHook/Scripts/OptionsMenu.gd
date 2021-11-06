@@ -62,3 +62,9 @@ func UpdateBirds():
 
 func UpdateGems():
 	$Gems.text = "$" + str(Global.gemsCollected.size())
+
+func UpdateMusicSlider(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+
+func UpdateSFXSlider(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)

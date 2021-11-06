@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://Sprites/Terrain/terrain_Opening.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=2]
@@ -32,6 +32,8 @@
 [ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Flag.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Sprites/Terrain/terrain_Base.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Terrain/extension_pipes.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Note.tscn" type="PackedScene" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 7 )
@@ -225,138 +227,156 @@ extents = Vector2( 4, 21 )
 extents = Vector2( 4, 9 )
 
 [sub_resource type="RectangleShape2D" id=65]
-extents = Vector2( 45, 8 )
+extents = Vector2( 46, 8 )
 
 [sub_resource type="RectangleShape2D" id=66]
-extents = Vector2( 16, 10 )
-
-[sub_resource type="RectangleShape2D" id=67]
-extents = Vector2( 23, 17 )
-
-[sub_resource type="RectangleShape2D" id=68]
-extents = Vector2( 34, 16 )
-
-[sub_resource type="RectangleShape2D" id=69]
-extents = Vector2( 4, 27 )
-
-[sub_resource type="RectangleShape2D" id=70]
-extents = Vector2( 7, 6 )
-
-[sub_resource type="RectangleShape2D" id=71]
-extents = Vector2( 14.5, 13 )
-
-[sub_resource type="RectangleShape2D" id=72]
-extents = Vector2( 7.5, 2.5 )
-
-[sub_resource type="RectangleShape2D" id=73]
-extents = Vector2( 15.5, 1 )
-
-[sub_resource type="RectangleShape2D" id=74]
-extents = Vector2( 17.5, 1 )
-
-[sub_resource type="RectangleShape2D" id=75]
-extents = Vector2( 12, 11 )
-
-[sub_resource type="RectangleShape2D" id=76]
-extents = Vector2( 15, 14 )
-
-[sub_resource type="RectangleShape2D" id=77]
-extents = Vector2( 8.5, 7 )
-
-[sub_resource type="RectangleShape2D" id=78]
-extents = Vector2( 16, 15 )
-
-[sub_resource type="RectangleShape2D" id=79]
-extents = Vector2( 9, 9 )
-
-[sub_resource type="RectangleShape2D" id=80]
-
-[sub_resource type="RectangleShape2D" id=81]
-extents = Vector2( 9, 15 )
-
-[sub_resource type="RectangleShape2D" id=82]
-extents = Vector2( 14, 20 )
-
-[sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 14, 5 )
-
-[sub_resource type="RectangleShape2D" id=84]
-extents = Vector2( 15.5, 31 )
-
-[sub_resource type="RectangleShape2D" id=85]
-extents = Vector2( 29, 4 )
-
-[sub_resource type="RectangleShape2D" id=86]
-extents = Vector2( 24, 63 )
-
-[sub_resource type="RectangleShape2D" id=87]
-extents = Vector2( 14, 9 )
-
-[sub_resource type="RectangleShape2D" id=88]
-extents = Vector2( 8.5, 8 )
-
-[sub_resource type="RectangleShape2D" id=89]
-extents = Vector2( 4, 4.5 )
-
-[sub_resource type="RectangleShape2D" id=90]
-extents = Vector2( 48, 43 )
-
-[sub_resource type="RectangleShape2D" id=91]
-extents = Vector2( 25, 3 )
-
-[sub_resource type="RectangleShape2D" id=92]
-extents = Vector2( 23, 3 )
-
-[sub_resource type="RectangleShape2D" id=93]
-extents = Vector2( 4, 11 )
-
-[sub_resource type="RectangleShape2D" id=94]
-extents = Vector2( 4.5, 4.5 )
-
-[sub_resource type="RectangleShape2D" id=95]
-extents = Vector2( 8, 81 )
-
-[sub_resource type="RectangleShape2D" id=96]
-extents = Vector2( 10, 3 )
-
-[sub_resource type="RectangleShape2D" id=97]
-extents = Vector2( 18, 13 )
-
-[sub_resource type="RectangleShape2D" id=98]
-extents = Vector2( 47, 11 )
-
-[sub_resource type="RectangleShape2D" id=99]
-extents = Vector2( 5, 46 )
-
-[sub_resource type="RectangleShape2D" id=100]
-extents = Vector2( 13, 23 )
-
-[sub_resource type="RectangleShape2D" id=101]
-extents = Vector2( 10, 15 )
-
-[sub_resource type="RectangleShape2D" id=102]
-extents = Vector2( 9, 89 )
-
-[sub_resource type="RectangleShape2D" id=103]
-extents = Vector2( 27, 8 )
-
-[sub_resource type="RectangleShape2D" id=104]
 extents = Vector2( 46, 10 )
 
+[sub_resource type="RectangleShape2D" id=67]
+extents = Vector2( 12, 3 )
+
+[sub_resource type="RectangleShape2D" id=68]
+extents = Vector2( 23, 17 )
+
+[sub_resource type="RectangleShape2D" id=69]
+extents = Vector2( 33, 17 )
+
+[sub_resource type="RectangleShape2D" id=70]
+extents = Vector2( 3.5, 27 )
+
+[sub_resource type="RectangleShape2D" id=71]
+extents = Vector2( 8.5, 30 )
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=73]
+extents = Vector2( 14.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 7.5, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=75]
+extents = Vector2( 15.5, 1 )
+
+[sub_resource type="RectangleShape2D" id=76]
+extents = Vector2( 17.5, 1 )
+
+[sub_resource type="RectangleShape2D" id=77]
+extents = Vector2( 12, 11 )
+
+[sub_resource type="RectangleShape2D" id=78]
+extents = Vector2( 15, 14 )
+
+[sub_resource type="RectangleShape2D" id=79]
+extents = Vector2( 8.5, 7 )
+
+[sub_resource type="RectangleShape2D" id=80]
+extents = Vector2( 16, 15 )
+
+[sub_resource type="RectangleShape2D" id=81]
+extents = Vector2( 9, 9 )
+
+[sub_resource type="RectangleShape2D" id=82]
+
+[sub_resource type="RectangleShape2D" id=83]
+extents = Vector2( 9, 15 )
+
+[sub_resource type="RectangleShape2D" id=84]
+extents = Vector2( 14, 20 )
+
+[sub_resource type="RectangleShape2D" id=85]
+extents = Vector2( 14, 5 )
+
+[sub_resource type="RectangleShape2D" id=86]
+extents = Vector2( 15.5, 31 )
+
+[sub_resource type="RectangleShape2D" id=87]
+extents = Vector2( 29, 4 )
+
+[sub_resource type="RectangleShape2D" id=88]
+extents = Vector2( 24, 63 )
+
+[sub_resource type="RectangleShape2D" id=89]
+extents = Vector2( 14, 9 )
+
+[sub_resource type="RectangleShape2D" id=90]
+extents = Vector2( 8.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=91]
+extents = Vector2( 4, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=92]
+extents = Vector2( 48, 43 )
+
+[sub_resource type="RectangleShape2D" id=93]
+extents = Vector2( 25, 3 )
+
+[sub_resource type="RectangleShape2D" id=94]
+extents = Vector2( 23, 3 )
+
+[sub_resource type="RectangleShape2D" id=95]
+extents = Vector2( 4, 11 )
+
+[sub_resource type="RectangleShape2D" id=96]
+extents = Vector2( 4.5, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=97]
+extents = Vector2( 8, 81 )
+
+[sub_resource type="RectangleShape2D" id=98]
+extents = Vector2( 10, 3 )
+
+[sub_resource type="RectangleShape2D" id=99]
+extents = Vector2( 18, 13 )
+
+[sub_resource type="RectangleShape2D" id=100]
+extents = Vector2( 47, 11 )
+
+[sub_resource type="RectangleShape2D" id=101]
+extents = Vector2( 5, 46 )
+
+[sub_resource type="RectangleShape2D" id=102]
+extents = Vector2( 13, 23 )
+
+[sub_resource type="RectangleShape2D" id=103]
+extents = Vector2( 11, 3 )
+
+[sub_resource type="RectangleShape2D" id=104]
+extents = Vector2( 10, 15 )
+
 [sub_resource type="RectangleShape2D" id=105]
-extents = Vector2( 14, 1 )
+extents = Vector2( 9, 89 )
 
 [sub_resource type="RectangleShape2D" id=106]
-extents = Vector2( 10, 1 )
+extents = Vector2( 27, 8 )
 
 [sub_resource type="RectangleShape2D" id=107]
-extents = Vector2( 8, 1 )
+extents = Vector2( 46, 10 )
 
 [sub_resource type="RectangleShape2D" id=108]
-extents = Vector2( 10, 1 )
+extents = Vector2( 14, 1 )
 
 [sub_resource type="RectangleShape2D" id=109]
+extents = Vector2( 10, 1 )
+
+[sub_resource type="RectangleShape2D" id=110]
+extents = Vector2( 8, 1 )
+
+[sub_resource type="RectangleShape2D" id=111]
+extents = Vector2( 10, 1 )
+
+[sub_resource type="RectangleShape2D" id=112]
 extents = Vector2( 87, 36 )
+
+[sub_resource type="RectangleShape2D" id=113]
+extents = Vector2( 10, 24 )
+
+[sub_resource type="RectangleShape2D" id=114]
+extents = Vector2( 38, 14 )
+
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 27, 31 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 18 )
@@ -441,7 +461,7 @@ motion_mirroring = Vector2( 512, 0 )
 texture = ExtResource( 6 )
 
 [node name="CinematicCamera" type="Camera2D" parent="."]
-position = Vector2( 360, 644 )
+position = Vector2( 464, 636 )
 current = true
 limit_left = 0
 limit_top = -1019
@@ -473,7 +493,6 @@ editor_draw_drag_margin = true
 
 [node name="OldMan" parent="." instance=ExtResource( 22 )]
 position = Vector2( 304, 649 )
-frame = 1
 
 [node name="Cinematics" type="Node2D" parent="."]
 position = Vector2( 0, -48 )
@@ -518,23 +537,23 @@ shape = SubResource( 4 )
 
 [node name="FreeBird" parent="Terrain/FinalIsland/FreeBirds" instance=ExtResource( 29 )]
 position = Vector2( -68, 9 )
-frame = 21
+frame = 27
 
 [node name="FreeBird2" parent="Terrain/FinalIsland/FreeBirds" instance=ExtResource( 29 )]
 position = Vector2( -27, 8 )
-frame = 3
+frame = 9
 
 [node name="FreeBird3" parent="Terrain/FinalIsland/FreeBirds" instance=ExtResource( 29 )]
 position = Vector2( -43, 8 )
-frame = 9
+frame = 15
 
 [node name="FreeBird4" parent="Terrain/FinalIsland/FreeBirds" instance=ExtResource( 29 )]
 position = Vector2( -10, 9 )
-frame = 19
+frame = 25
 
 [node name="FreeBird5" parent="Terrain/FinalIsland/FreeBirds" instance=ExtResource( 29 )]
 position = Vector2( 13, 7 )
-frame = 8
+frame = 14
 
 [node name="TerrainOpening" type="Sprite" parent="Terrain"]
 position = Vector2( 0, -1034 )
@@ -965,7 +984,7 @@ polygon = PoolVector2Array( -10, -1, 2, -7, 5, -1 )
 
 [node name="AnimatedSprite" parent="Terrain/TerrainOpening" instance=ExtResource( 31 )]
 position = Vector2( 324, 1032 )
-frame = 4
+frame = 1
 
 [node name="TestDungeon" type="Sprite" parent="Terrain"]
 position = Vector2( 256, 400 )
@@ -997,88 +1016,100 @@ position = Vector2( -28, -25 )
 shape = SubResource( 64 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
-position = Vector2( -237, -59 )
+position = Vector2( -235, -59 )
 shape = SubResource( 65 )
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
-position = Vector2( -209, -45 )
+position = Vector2( -235, -45 )
 shape = SubResource( 66 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -219, -32 )
+shape = SubResource( 67 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -141, -51 )
-shape = SubResource( 67 )
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
-position = Vector2( -49, -51 )
 shape = SubResource( 68 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
-position = Vector2( -209, -8 )
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -48, -52 )
 shape = SubResource( 69 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -203.5, -8 )
+shape = SubResource( 70 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -267.5, -8 )
+shape = SubResource( 70 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -235.5, 17 )
+shape = SubResource( 71 )
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -175, 41 )
-shape = SubResource( 70 )
+shape = SubResource( 72 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -370.5, 4 )
-shape = SubResource( 71 )
+shape = SubResource( 73 )
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -397.5, -36.5 )
-shape = SubResource( 72 )
+shape = SubResource( 74 )
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -303.5, -22.5 )
-shape = SubResource( 72 )
+shape = SubResource( 74 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -295.5, -102 )
-shape = SubResource( 73 )
+shape = SubResource( 75 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -370.5, -101 )
-shape = SubResource( 74 )
+shape = SubResource( 76 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -345, -146 )
-shape = SubResource( 75 )
+shape = SubResource( 77 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -257, -145 )
-shape = SubResource( 75 )
+shape = SubResource( 77 )
 
 [node name="CollisionShape2D58" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -265, -81 )
-shape = SubResource( 76 )
+shape = SubResource( 78 )
 
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -151, -80 )
-shape = SubResource( 76 )
+shape = SubResource( 78 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -143.5, -133 )
-shape = SubResource( 77 )
+shape = SubResource( 79 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -67, -83 )
-shape = SubResource( 78 )
+shape = SubResource( 80 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
-position = Vector2( -74, -105 )
-shape = SubResource( 79 )
+position = Vector2( -76, -105 )
+shape = SubResource( 81 )
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -126, -75 )
-shape = SubResource( 80 )
+shape = SubResource( 82 )
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -76, -128 )
-shape = SubResource( 81 )
+shape = SubResource( 83 )
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -39, -164 )
-shape = SubResource( 82 )
+shape = SubResource( 84 )
 
 [node name="CollisionShape2D39" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -39, -284 )
@@ -1116,6 +1147,10 @@ polygon = PoolVector2Array( 12, 5, 12, -28, -18, 5 )
 position = Vector2( -291, -1044 )
 polygon = PoolVector2Array( -10, 7, -9, -8, -20, 7 )
 
+[node name="CollisionShape2D75" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -113, -1088 )
+polygon = PoolVector2Array( -10, 7, -10, -13, 0, 7 )
+
 [node name="CollisionShape2D65" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -363, -1244 )
 polygon = PoolVector2Array( -4, -1, -4, -11, -19, -1 )
@@ -1128,7 +1163,7 @@ one_way_collision = true
 
 [node name="CollisionShape2D63" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -432, -1042 )
-polygon = PoolVector2Array( -12, 7, -32, -26, -1, 7 )
+polygon = PoolVector2Array( -12, 7, -35, -37, -1, 7 )
 
 [node name="CollisionShape2D62" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -177, -396 )
@@ -1148,127 +1183,131 @@ polygon = PoolVector2Array( 18, -3, 7, 39, -4, -3 )
 
 [node name="CollisionShape2D60" type="CollisionPolygon2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -49, -92 )
-polygon = PoolVector2Array( 9, -3, 2, 3, -2, -6 )
+polygon = PoolVector2Array( 9, -2, 2, 3, -2, -6 )
 
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -39, -147 )
-shape = SubResource( 83 )
+shape = SubResource( 85 )
 
 [node name="CollisionShape2D38" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -35.5, -333 )
-shape = SubResource( 84 )
+shape = SubResource( 86 )
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -49, -298 )
-shape = SubResource( 85 )
+shape = SubResource( 87 )
 
 [node name="CollisionShape2D40" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -162, -238 )
-shape = SubResource( 86 )
+shape = SubResource( 88 )
 
 [node name="CollisionShape2D70" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -162, -178 )
-shape = SubResource( 87 )
+shape = SubResource( 89 )
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -331.5, -317 )
-shape = SubResource( 88 )
+shape = SubResource( 90 )
 
 [node name="CollisionShape2D49" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -337.5, -331 )
-shape = SubResource( 88 )
+shape = SubResource( 90 )
 
 [node name="CollisionShape2D51" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -344, -377.5 )
-shape = SubResource( 89 )
+shape = SubResource( 91 )
 
 [node name="CollisionShape2D52" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -408, -449 )
-shape = SubResource( 90 )
+shape = SubResource( 92 )
 
 [node name="CollisionShape2D53" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -280, -449 )
-shape = SubResource( 90 )
+shape = SubResource( 92 )
 
 [node name="CollisionShape2D54" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -192, -444 )
-shape = SubResource( 90 )
+shape = SubResource( 92 )
 
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -344, -279 )
-shape = SubResource( 91 )
+shape = SubResource( 93 )
 
 [node name="CollisionShape2D71" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -386, -230 )
-shape = SubResource( 92 )
+shape = SubResource( 94 )
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -17, -262 )
-shape = SubResource( 93 )
+shape = SubResource( 95 )
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 24.5, -143.5 )
-shape = SubResource( 94 )
+shape = SubResource( 96 )
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 47, -27 )
-shape = SubResource( 95 )
+shape = SubResource( 97 )
 
 [node name="CollisionShape2D69" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 40, -93 )
-shape = SubResource( 96 )
+shape = SubResource( 98 )
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -32, -81 )
-shape = SubResource( 97 )
+shape = SubResource( 99 )
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -96, -186 )
-shape = SubResource( 98 )
+shape = SubResource( 100 )
 
 [node name="CollisionShape2D27" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 60, -156 )
-shape = SubResource( 99 )
+shape = SubResource( 101 )
 
 [node name="CollisionShape2D68" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 53, -90 )
-shape = SubResource( 99 )
+shape = SubResource( 101 )
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 44, -206 )
-shape = SubResource( 100 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
+position = Vector2( -25, -149 )
+shape = SubResource( 103 )
 
 [node name="CollisionShape2D31" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 50, -249 )
-shape = SubResource( 101 )
+shape = SubResource( 104 )
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 49, -353 )
-shape = SubResource( 102 )
+shape = SubResource( 105 )
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -463, -353 )
-shape = SubResource( 102 )
+shape = SubResource( 105 )
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -463, -176 )
-shape = SubResource( 102 )
+shape = SubResource( 105 )
 
 [node name="CollisionShape2D44" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -463, 0 )
-shape = SubResource( 102 )
+shape = SubResource( 105 )
 
 [node name="CollisionShape2D33" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( 27, -409 )
-shape = SubResource( 103 )
+shape = SubResource( 106 )
 
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -27, -409 )
-shape = SubResource( 103 )
+shape = SubResource( 106 )
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="Terrain/TestDungeon/StaticBody2D2"]
 position = Vector2( -100, -411 )
-shape = SubResource( 104 )
+shape = SubResource( 107 )
 
 [node name="oneway" type="StaticBody2D" parent="Terrain/TestDungeon"]
 position = Vector2( -96, 138 )
@@ -1276,12 +1315,17 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestDungeon/oneway"]
 position = Vector2( 1, -9 )
-shape = SubResource( 105 )
+shape = SubResource( 108 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain/TestDungeon/oneway"]
+position = Vector2( 79, 75 )
+shape = SubResource( 108 )
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain/TestDungeon/oneway"]
 position = Vector2( 145, -83 )
-shape = SubResource( 106 )
+shape = SubResource( 109 )
 one_way_collision = true
 
 [node name="oneway3" type="StaticBody2D" parent="Terrain/TestDungeon"]
@@ -1291,7 +1335,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestDungeon/oneway3"]
 position = Vector2( 0, -3 )
-shape = SubResource( 107 )
+shape = SubResource( 110 )
 one_way_collision = true
 
 [node name="oneway4" type="StaticBody2D" parent="Terrain/TestDungeon"]
@@ -1300,70 +1344,89 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestDungeon/oneway4"]
 position = Vector2( 7, -29 )
-shape = SubResource( 108 )
+shape = SubResource( 111 )
 one_way_collision = true
 
 [node name="Pins" type="Node2D" parent="Terrain/TestDungeon"]
 
 [node name="PinLoop" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 209, -16 )
-frame = 2
+frame = 6
 
 [node name="PinLoop4" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 210, -155 )
-frame = 2
+frame = 6
 
 [node name="PinLoop8" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -11, -463 )
-frame = 2
+frame = 6
 
 [node name="PinLoop11" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -234, -565 )
-frame = 2
+frame = 6
 
 [node name="PinLoop12" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 231, -905 )
-frame = 2
+frame = 6
 
 [node name="PinLoop13" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 205, -956 )
-frame = 2
+frame = 6
 
 [node name="PinLoop14" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 183, -1000 )
-frame = 2
+frame = 6
 
 [node name="PinLoop15" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( 160, -1049 )
-frame = 2
+frame = 6
 
 [node name="PinLoop9" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -58, -477 )
-frame = 2
+frame = 6
 
 [node name="PinLoop10" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -117, -507 )
-frame = 2
+frame = 6
 
 [node name="PinLoop6" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -178, -137 )
-frame = 2
+frame = 6
 
 [node name="PinLoop7" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -144, -256 )
-frame = 2
+frame = 6
 
 [node name="PinLoop16" parent="Terrain/TestDungeon/Pins" instance=ExtResource( 13 )]
 position = Vector2( -144, -296 )
-frame = 2
+frame = 6
 
 [node name="Sprite" type="Sprite" parent="Terrain/TestDungeon"]
 position = Vector2( 0, 279 )
 texture = ExtResource( 32 )
 
+[node name="ExtensionPipes" type="Sprite" parent="Terrain/TestDungeon"]
+position = Vector2( 321, -94 )
+texture = ExtResource( 33 )
+
 [node name="HookEnable" parent="Terrain" instance=ExtResource( 14 )]
 position = Vector2( 432, 383 )
 rotation = -1.48702
+
+[node name="HookEnable2" parent="Terrain" instance=ExtResource( 14 )]
+position = Vector2( 322, 266 )
+rotation = -1.48702
+
+[node name="HookEnable3" parent="Terrain" instance=ExtResource( 14 )]
+position = Vector2( 298, 266 )
+rotation = -1.48702
+
+[node name="HookEnable4" parent="Terrain" instance=ExtResource( 14 )]
+position = Vector2( 324, 235 )
+rotation = -0.406662
+
+[node name="HookEnable5" parent="Terrain" instance=ExtResource( 14 )]
+position = Vector2( 349, 288 )
 
 [node name="HookDisable" parent="Terrain" instance=ExtResource( 15 )]
 position = Vector2( 336, 297 )
@@ -1378,19 +1441,24 @@ texture = ExtResource( 20 )
 
 [node name="Birdcage" parent="." instance=ExtResource( 23 )]
 position = Vector2( 14, 645 )
+frame = 1
 
 [node name="Birdcage2" parent="." instance=ExtResource( 23 )]
 position = Vector2( 111, 359 )
+frame = 1
 
 [node name="Birdcage3" parent="." instance=ExtResource( 23 )]
 position = Vector2( 71, -41 )
+frame = 1
 
 [node name="Birdcage4" parent="." instance=ExtResource( 23 )]
 position = Vector2( 429, -213 )
+frame = 1
 flip_h = true
 
 [node name="Birdcage5" parent="." instance=ExtResource( 23 )]
 position = Vector2( 272, -796 )
+frame = 1
 flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1469,8 +1537,7 @@ __meta__ = {
 }
 
 [node name="Vagabond" parent="." instance=ExtResource( 24 )]
-position = Vector2( 413, 92 )
-frame = 2
+position = Vector2( 416, 92 )
 
 [node name="FinalWeight" parent="." instance=ExtResource( 25 )]
 position = Vector2( 478, -877 )
@@ -1484,7 +1551,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BirdArea"]
 position = Vector2( 3, -25 )
-shape = SubResource( 109 )
+shape = SubResource( 112 )
 
 [node name="BirdAreaTimer" type="Timer" parent="."]
 
@@ -1492,160 +1559,301 @@ shape = SubResource( 109 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 133, 644 )
-frame = 7
+frame = 9
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 109, 644 )
-frame = 7
+frame = 9
 
 [node name="Gem3" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 85, 644 )
-frame = 9
 
 [node name="Gem4" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 137, 520 )
-frame = 8
+frame = 0
 
 [node name="Gem5" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 126, 504 )
-frame = 7
+frame = 9
 
 [node name="Gem6" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 115, 488 )
-frame = 7
+frame = 9
 
 [node name="Gem7" parent="Gems" instance=ExtResource( 30 )]
-position = Vector2( 346, 451 )
-frame = 6
+position = Vector2( 218, 531 )
+frame = 8
 
 [node name="Gem8" parent="Gems" instance=ExtResource( 30 )]
-position = Vector2( 362, 451 )
-frame = 6
+position = Vector2( 234, 531 )
+frame = 8
 
 [node name="Gem9" parent="Gems" instance=ExtResource( 30 )]
-position = Vector2( 378, 451 )
-frame = 5
+position = Vector2( 250, 531 )
 
 [node name="Gem10" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 346, 267 )
-frame = 4
+frame = 6
 
 [node name="Gem11" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 330, 259 )
-frame = 3
+frame = 5
 
 [node name="Gem12" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 314, 251 )
-frame = 3
+frame = 5
 
 [node name="Gem13" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 149, 294 )
+frame = 4
 
 [node name="Gem21" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 53, -192 )
-frame = 1
+frame = 3
 
 [node name="Gem14" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 393, -36 )
+frame = 4
 
 [node name="Gem15" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 386, -27 )
+frame = 4
 
 [node name="Gem16" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 381, -13 )
-frame = 1
+frame = 3
 
 [node name="Gem17" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 379, 4 )
-frame = 1
+frame = 3
 
 [node name="Gem18" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 184, -60 )
-frame = 0
+frame = 3
 
 [node name="Gem19" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 168, -69 )
-frame = 0
+frame = 3
 
 [node name="Gem20" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 152, -78 )
-frame = 0
+frame = 3
 
 [node name="Gem22" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 54, -382 )
-frame = 9
 
 [node name="Gem23" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 66, -365 )
-frame = 8
+frame = 0
 
 [node name="Gem24" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 74, -333 )
-frame = 8
+frame = 0
 
 [node name="Gem25" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 290, -276 )
-frame = 7
+frame = 9
 
 [node name="Gem26" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 306, -290 )
-frame = 7
+frame = 9
 
 [node name="Gem27" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 322, -304 )
-frame = 7
+frame = 9
 
 [node name="Gem28" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 475, -516 )
-frame = 6
+frame = 8
 
 [node name="Gem29" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 452, -562 )
-frame = 5
 
 [node name="Gem30" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 428, -610 )
-frame = 5
 
 [node name="Gem31" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 279, -705 )
-frame = 4
+frame = 6
 
 [node name="Gem32" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 65, -639 )
-frame = 3
+frame = 5
 
 [node name="Gem33" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 60, -626 )
-frame = 3
+frame = 5
 
 [node name="Gem34" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 56, -610 )
+frame = 4
 
 [node name="Gem35" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 106, -871 )
+frame = 4
 
 [node name="Gem36" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 122, -879 )
-frame = 1
+frame = 3
 
 [node name="Gem37" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 138, -887 )
-frame = 0
+frame = 3
 
 [node name="Gem38" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 210, -879 )
-frame = 9
 
 [node name="Gem39" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 234, -884 )
-frame = 9
 
 [node name="Gem40" parent="Gems" instance=ExtResource( 30 )]
 position = Vector2( 258, -889 )
-frame = 8
+frame = 0
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="MoveMidAir" type="Label" parent="Hints"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 195.0
+margin_top = 580.0
+margin_right = 248.0
+margin_bottom = 593.0
+custom_fonts/font = ExtResource( 26 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "You can move mid-air"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveMidAirHint" type="Area2D" parent="Hints/MoveMidAir"]
+position = Vector2( 45, 27 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/MoveMidAir/MoveMidAirHint"]
+position = Vector2( -1, -4 )
+shape = SubResource( 113 )
+
+[node name="MoveMidAir2" type="Label" parent="Hints"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 391.0
+margin_top = -80.0
+margin_right = 468.0
+margin_bottom = -59.0
+custom_fonts/font = ExtResource( 26 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "You can move while the hook is mid-air too"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveMidAirHint" type="Area2D" parent="Hints/MoveMidAir2"]
+position = Vector2( 49, 29 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/MoveMidAir2/MoveMidAirHint"]
+position = Vector2( -1, -6 )
+shape = SubResource( 114 )
+
+[node name="MoveMidAir3" type="Label" parent="Hints"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 255.0
+margin_top = -352.0
+margin_right = 332.0
+margin_bottom = -331.0
+custom_fonts/font = ExtResource( 26 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "You can shoot the hook mid-air too!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveMidAirHint" type="Area2D" parent="Hints/MoveMidAir3"]
+position = Vector2( 49, 16 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/MoveMidAir3/MoveMidAirHint"]
+position = Vector2( 2, -6 )
+shape = SubResource( 115 )
+
+[node name="HintTween" type="Tween" parent="Hints"]
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="Note" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 393, 449 )
+frame = 0
+
+[node name="Note2" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 375, 448 )
+frame = 0
+
+[node name="Note3" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 357, 447 )
+frame = 0
+
+[node name="Note4" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 339, 449 )
+frame = 0
+
+[node name="Note5" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 321, 453 )
+frame = 0
+
+[node name="Note6" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 393, -80 )
+frame = 0
+
+[node name="Note7" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 388, -97 )
+frame = 0
+
+[node name="Note8" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 375, -113 )
+frame = 0
+
+[node name="Note9" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 362, -97 )
+frame = 0
+
+[node name="Note10" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 356, -80 )
+frame = 0
+
+[node name="Note11" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 57, -417 )
+frame = 0
+
+[node name="Note12" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 73, -433 )
+frame = 0
+
+[node name="Note13" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 93, -444 )
+frame = 0
+
+[node name="Note14" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 113, -433 )
+frame = 0
+
+[node name="Note15" parent="Notes" instance=ExtResource( 34 )]
+position = Vector2( 129, -417 )
+frame = 0
 
 [connection signal="timeout" from="SlowmoTimer" to="." method="SlowmoTimeout"]
 [connection signal="body_entered" from="BirdArea" to="." method="PlayerEnteredBirdArea"]
 [connection signal="body_exited" from="BirdArea" to="." method="PlayerExitedBirdArea"]
 [connection signal="timeout" from="BirdAreaTimer" to="." method="Tweet"]
+[connection signal="body_entered" from="Hints/MoveMidAir/MoveMidAirHint" to="." method="Hint1Enter"]
+[connection signal="body_exited" from="Hints/MoveMidAir/MoveMidAirHint" to="." method="Hint1Exit"]
+[connection signal="body_entered" from="Hints/MoveMidAir2/MoveMidAirHint" to="." method="Hint2Enter"]
+[connection signal="body_exited" from="Hints/MoveMidAir2/MoveMidAirHint" to="." method="Hint2Exit"]
+[connection signal="body_entered" from="Hints/MoveMidAir3/MoveMidAirHint" to="." method="Hint3Show"]
+[connection signal="body_exited" from="Hints/MoveMidAir3/MoveMidAirHint" to="." method="Hint3Hide"]

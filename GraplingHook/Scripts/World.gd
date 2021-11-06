@@ -19,6 +19,8 @@ var islandSpeed = .01
 
 var runStarted = false
 
+onready var hintTween = $Hints/HintTween
+
 func _ready():
 	
 	if Global.playerData == null:
@@ -196,3 +198,27 @@ func PlayerExitedBirdArea(body):
 
 func Tweet():
 	Global.soundControl.Play("Tweet")
+
+func Hint1Enter(body):
+	hintTween.interpolate_property($Hints/MoveMidAir, "modulate", $Hints/MoveMidAir.modulate, Color(1, 1, 1, 1), .3)
+	hintTween.start()
+
+func Hint1Exit(body):
+	hintTween.interpolate_property($Hints/MoveMidAir, "modulate", $Hints/MoveMidAir.modulate, Color(1, 1, 1, 0), .3)
+	hintTween.start()
+
+func Hint2Enter(body):
+	hintTween.interpolate_property($Hints/MoveMidAir2, "modulate", $Hints/MoveMidAir2.modulate, Color(1, 1, 1, 1), .3)
+	hintTween.start()
+
+func Hint2Exit(body):
+	hintTween.interpolate_property($Hints/MoveMidAir2, "modulate", $Hints/MoveMidAir2.modulate, Color(1, 1, 1, 0), .3)
+	hintTween.start()
+
+func Hint3Show(body):
+	hintTween.interpolate_property($Hints/MoveMidAir3, "modulate", $Hints/MoveMidAir3.modulate, Color(1, 1, 1, 1), .3)
+	hintTween.start()
+
+func Hint3Hide(body):
+	hintTween.interpolate_property($Hints/MoveMidAir3, "modulate", $Hints/MoveMidAir3.modulate, Color(1, 1, 1, 0), .3)
+	hintTween.start()

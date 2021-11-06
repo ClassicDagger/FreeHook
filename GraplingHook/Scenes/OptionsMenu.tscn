@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Sprites/UI/OptionsMenu.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/UI/FreeHookLogo.png" type="Texture" id=2]
@@ -21,6 +21,22 @@
 [ext_resource path="res://Sprites/UI/BirdCaves.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/UI/BirdDunes.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/BirdPalm.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/UI/AudioSlider.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/UI/AudioSliderKnob.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/UI/AudioSliderKnobIdle.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/UI/AudioSliderIdle.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UI/MusicIcon.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UI/SFXIcon.png" type="Texture" id=27]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 42, 5 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 42, 5 )
+
+[sub_resource type="StyleBoxTexture" id=3]
 
 [node name="OptionsMenu" type="Control"]
 pause_mode = 2
@@ -43,10 +59,11 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="MusicButton" type="TextureButton" parent="."]
-margin_left = 80.0
-margin_top = 53.0
-margin_right = 95.0
-margin_bottom = 70.0
+visible = false
+margin_left = 155.0
+margin_top = 88.0
+margin_right = 170.0
+margin_bottom = 105.0
 toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 10 )
@@ -57,10 +74,11 @@ __meta__ = {
 }
 
 [node name="SoundButton" type="TextureButton" parent="."]
-margin_left = 95.0
-margin_top = 54.0
-margin_right = 110.0
-margin_bottom = 71.0
+visible = false
+margin_left = 170.0
+margin_top = 89.0
+margin_right = 185.0
+margin_bottom = 106.0
 toggle_mode = true
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
@@ -153,6 +171,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioSlider" type="Control" parent="."]
+margin_left = 79.0
+margin_top = 54.0
+margin_right = 79.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" type="HSlider" parent="AudioSlider"]
+margin_right = 42.0
+margin_bottom = 7.0
+custom_icons/grabber_disabled = ExtResource( 23 )
+custom_icons/grabber_highlight = ExtResource( 24 )
+custom_icons/grabber = ExtResource( 24 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = -80.0
+max_value = 0.0
+value = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSlider" type="HSlider" parent="AudioSlider"]
+margin_top = 9.0
+margin_right = 42.0
+margin_bottom = 16.0
+custom_icons/grabber_disabled = ExtResource( 23 )
+custom_icons/grabber_highlight = ExtResource( 24 )
+custom_icons/grabber = ExtResource( 24 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = -80.0
+max_value = 0.0
+value = -40.0
+
+[node name="MusicSymbol" type="TextureRect" parent="AudioSlider"]
+margin_left = -12.0
+margin_top = -3.0
+margin_bottom = 8.0
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSymbol" type="TextureRect" parent="AudioSlider"]
+margin_left = -11.0
+margin_top = 8.0
+margin_right = -2.0
+margin_bottom = 18.0
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="mouse_entered" from="MusicButton" to="." method="HoverButton"]
 [connection signal="toggled" from="MusicButton" to="." method="MusicToggle"]
 [connection signal="mouse_entered" from="SoundButton" to="." method="HoverButton"]
@@ -161,3 +237,5 @@ __meta__ = {
 [connection signal="pressed" from="ExitButton" to="." method="ExitPressed"]
 [connection signal="mouse_entered" from="Menu" to="." method="HoverButton"]
 [connection signal="pressed" from="Menu" to="." method="PressedMainMenu"]
+[connection signal="value_changed" from="AudioSlider/MusicSlider" to="." method="UpdateMusicSlider"]
+[connection signal="value_changed" from="AudioSlider/SFXSlider" to="." method="UpdateSFXSlider"]

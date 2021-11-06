@@ -13,12 +13,14 @@ var tip = Vector2.ZERO
 
 var flying = false
 var hooked = false
-var chainLife = 75
-var hookLife = 250
+var chainLife = 1.5
+var hookLife = 2
 var hookAvailable = true
 var returning = false
 
 var hit = ""
+
+var pinLocked = false
 
 var savedPins = []
 
@@ -34,26 +36,43 @@ func Shoot(givenDirection, givenStage):
 	speed = givenStage
 
 func Reset():
-	hit = ""
-	flying = false
-	hooked = false
-	speed = 2
-	hookLife = 250
-	chainLife = 75
-	noiseDelay.stop()
-	get_parent().reachedDestination = false
-	get_parent().hitPin = false
-	get_parent().recovering = true
+	if !pinLocked:
+		print("resetting    !!")
+		hit = ""
+		flying = false
+		hooked = false
+		speed = 2
+		hookLife = 250
+		chainLife = 75
+		noiseDelay.stop()
+		#get_parent().movingToLocation = false
+		get_parent().reachedDestination = false
+		get_parent().hitPin = false
+		get_parent().recovering = true
 
 func _process(delta):
 	if flying:
 		var xdifference = abs(get_parent().position.x - tip.x)
-		if xdifference > 150:
+		if xdifference > 125:
 			Reset()
 		
-		var ydifference = abs(get_parent().position.y - tip.y)
-		if ydifference > 200:
-			Reset()
+		
+		if tip.y >= (get_parent().position.y + 65):
+			flying = false
+			hooked = false
+			get_parent().recovering = true
+			#get_parent().reachedDestination = false
+			#SoftReset()
+		if tip.y <= (get_parent().position.y - 275):
+			flying = false
+			hooked = false
+			get_parent().recovering = true
+			#get_parent().reachedDestination = false
+		
+#		var ydifference = abs(get_parent().position.y - tip.y)
+#		print(ydifference)
+#		if ydifference > 75:
+#			Reset()
 		
 		#if xdif
 	
@@ -65,11 +84,11 @@ func _process(delta):
 		chains.position = tipLocal
 		chains.region_rect.size.y = tipLocal.length()
 		if hooked and hit != "Pin":
-			hookLife -= 1
+			hookLife -= 1 * delta
 			if hookLife <= 0:
 				Reset()
 		elif flying:
-			chainLife -= 1
+			chainLife -= 1 * delta
 			if chainLife <= 0:
 				Reset()
 #		if get_parent().hitPin:
@@ -85,6 +104,7 @@ func _physics_process(delta):
 				noiseDelay.start()
 			var collisionInfo = $Tip.move_and_collide(direction * speed)
 			if collisionInfo != null:
+				get_parent().movingToLocation = true
 				noiseDelay.stop()
 				var hookHitParticle = PARTICLE.instance()
 				hookHitParticle.UpdateParticle("HookParticle")
@@ -92,16 +112,19 @@ func _physics_process(delta):
 				hookHitParticle.position = $Tip.global_position
 				Global.soundControl.StopSound("ThrowGraple")
 				Global.soundControl.Play("GrapleHit")
+				
 				var LeaveSmoke = PARTICLE.instance()
-				LeaveSmoke.UpdateParticle("LargePuff")
+				LeaveSmoke.UpdateParticle("CirclePuff")
 				get_parent().get_parent().add_child(LeaveSmoke)
 				LeaveSmoke.position = get_parent().position
+				LeaveSmoke.rotation = $Tip.rotation
 				
 				hooked = true
 				flying = false
 				get_parent().reachedDestination = false
 				if collisionInfo.get_collider().name == "PinHitbox":
 					hit = "Pin"
+					pinLocked = true
 					chainLife = 75
 					var pinHit = collisionInfo.get_collider()
 					pinHit.get_child(0).disabled = true
@@ -111,6 +134,7 @@ func _physics_process(delta):
 					get_parent().hitPin = true
 				else:
 					hit = "Terrain"
+					pinLocked = false
 					get_parent().hitPin = false
 					if collisionInfo.get_collider().name == "BirdcageHitbox":
 						collisionInfo.get_collider().get_parent().OpenCage()

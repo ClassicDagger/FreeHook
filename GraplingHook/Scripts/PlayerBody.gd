@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const PARTICLE = preload("res://Scenes/Particle.tscn")
+const GHOST = preload("res://Scenes/PlayerGhost.tscn")
 
 onready var animator = $PlayerSprite
 onready var fadeEffect1 = $PlayerSprite/FadeEffect1
@@ -8,6 +9,7 @@ onready var fadeEffect2 = $PlayerSprite/FadeEffect2
 onready var playerTween = $PlayerTween
 onready var graplingHook = $GraplingHook
 onready var stepTimer = $StepTimer
+onready var ghostTimer = $GhostTimer
 
 var grounded = false
 var moveSpeed = 1
@@ -21,7 +23,7 @@ const chainPull = 225
 
 var hookCharge = 0
 var hookStage = 0
-var maxCharge = 30
+var maxCharge = 0.5
 
 var velocity = Vector2.ZERO
 var recovering = false
@@ -34,6 +36,8 @@ var chargingHangHook = false
 var shockwave = false
 var savedPin = []
 var reachedDestination = false
+
+var movingToLocation = false
 
 var stunned = false
 
@@ -50,7 +54,7 @@ func _ready():
 func _physics_process(delta):
 	#Walking
 	var direction = 0
-	if !stunned and !shockwave and hookCharge < 50:
+	if !stunned and !shockwave and hookCharge < 0.5:
 		direction = sign(Input.get_action_strength('Right') - Input.get_action_strength('Left'))
 	spectralDirection = direction
 	
@@ -61,13 +65,14 @@ func _physics_process(delta):
 	
 	if direction > 0:
 		if grounded:
-			if hookCharge > 1:
+			if hookCharge > 0:
+				print(moveSpeed)
 				if moveSpeed > 8:
 					if animator.animation != "ChargeWalk":
 						Global.soundControl.Play("ChargeGraple", 1)
 						animator.animation = "ChargeWalk"
-				if hookCharge > 25:
-					moveSpeed *= .95
+				if hookCharge > 0.2:
+					moveSpeed *= .965
 			else:
 				moveSpeed += acceleration
 				animator.animation = "Walk"
@@ -83,13 +88,14 @@ func _physics_process(delta):
 	elif direction < 0:
 		if grounded:
 			animator.flip_h = true
-			if hookCharge > 1:
+			if hookCharge > 0:
+				print(moveSpeed)
 				if moveSpeed > 8:
 					if animator.animation != "ChargeWalk":
 						Global.soundControl.Play("ChargeGraple", 1)
 						animator.animation = "ChargeWalk"
-				if hookCharge > 25:
-					moveSpeed *= .95
+				if hookCharge > 0.2:
+					moveSpeed *= .965
 			else:
 				moveSpeed += acceleration
 				animator.animation = "Walk"
@@ -112,7 +118,10 @@ func _physics_process(delta):
 		if shockwave:
 			animator.animation = "Shockwave"
 		elif hookCharge == 0 and grounded and !fallingLong and animator.animation != "Fell":
-			animator.animation = "Idle"
+			if graplingHook.pinLocked:
+				animator.animation = ""
+			else:
+				animator.animation = "Idle"
 		
 			
 		if animationFlag:
@@ -125,6 +134,8 @@ func _physics_process(delta):
 	#Hook physics
 	var hookedPos = Vector2.ZERO
 	if graplingHook.hooked:
+		if ghostTimer.is_stopped():
+			ghostTimer.start()
 		stepTimer.stop()
 		if !chargingHangHook:
 			animator.animation = "Hold"
@@ -142,20 +153,26 @@ func _physics_process(delta):
 				hookedPos.y = 0
 			if hookedPos == Vector2.ZERO:
 				reachedDestination = true
+				if movingToLocation:
+					print("STOPPED MOVING")
+					movingToLocation = false
+				
 		else:
 			if xdifference <= 10 and ydifference <= 10:
 				graplingHook.Reset()
 		
 		var collisionInfo
-		if !chargingHangHook and hookedPos != null:
-			collisionInfo = move_and_collide(hookedPos * chainPull * delta)
+		if hookedPos != null:
+			if !chargingHangHook:
+				collisionInfo = move_and_collide(hookedPos * chainPull * delta)
 		
 		if collisionInfo != null:
 			graplingHook.Reset()
 			Global.soundControl.Play("HitWall")
-			
 		
-	else:
+	elif !graplingHook.pinLocked:
+		ghostTimer.stop()
+		
 		velocity.y += gravity
 		velocity.x += direction * moveSpeed
 		move_and_slide(velocity, Vector2.UP)
@@ -166,6 +183,7 @@ func _physics_process(delta):
 		
 		grounded = is_on_floor()
 		if grounded:
+			movingToLocation = false
 			if fallFlag:
 				if updatingCamera:
 					UpdateCamera($MainCamera)
@@ -180,16 +198,15 @@ func _physics_process(delta):
 				
 				if fallingLong:
 					if animator.animation != "Fell":
-						var newBigPuff = PARTICLE.instance()
-						newBigPuff.UpdateParticle("Bonk")
-						newBigPuff.position = position
-						get_parent().add_child(newBigPuff)
+						var newBonk = PARTICLE.instance()
+						newBonk.UpdateParticle("Bonk")
+						newBonk.position = position
+						get_parent().add_child(newBonk)
 						reachedDestination = false
 						Global.soundControl.Play("Fell")
 						animator.animation = "Fell"
 						fallingLong = false
 				
-			
 			
 			if recovering:
 				canHook = true
@@ -202,27 +219,28 @@ func _physics_process(delta):
 		else:
 			stepTimer.stop()
 			moveSpeed *= 0.96
-			if !fallFlag and !graplingHook.hooked:
+			if !fallFlag and !graplingHook.hooked and !graplingHook.pinLocked:
 				animator.animation = "FallTransition"
 				fallFlag = true
 				#animator.animation = "FallLoop"
-		
+	elif hookCharge == 0:
+		animator.animation = "Hold"
 	
-	#	if Input.is_action_pressed('Cheat'):
-	#		position = Vector2(113, 253)
-	#
-	#	if Input.is_action_pressed('CheatHarder'):
-	#		position = Vector2(185, -380)
-	#
-	#	if Input.is_action_pressed('CheatMost'):
-	#		position = Vector2(297, -885)
+	if Input.is_action_pressed('Cheat'):
+		position = Vector2(113, 253)
+
+	if Input.is_action_pressed('CheatHarder'):
+		position = Vector2(185, -380)
+
+	if Input.is_action_pressed('CheatMost'):
+		position = Vector2(297, -885)
 	
 	if Input.is_action_pressed('Hook'):
 		if !stunned and !shockwave:
 			if grounded:
 				if canHook:
-					hookCharge += 1
-					
+					hookCharge += 1 * delta
+					#print(hookCharge)
 					var mousePos = get_global_mouse_position()
 					if mousePos.x > position.x:
 						animator.flip_h = false
@@ -242,9 +260,9 @@ func _physics_process(delta):
 							if moveSpeed <= 8:
 								animator.animation = "HookLight"
 								Global.soundControl.Play("ChargeGraple", 1)
-			if graplingHook.hit == "Pin" and hookedPos == Vector2.ZERO:
+			if graplingHook.hit == "Pin" and hookedPos == Vector2.ZERO and !graplingHook.flying:
 				chargingHangHook = true
-				hookCharge += 1
+				hookCharge += 1 * delta
 				
 				var mousePos = get_global_mouse_position()
 				if mousePos.x > position.x:
@@ -263,22 +281,48 @@ func _physics_process(delta):
 						animator.animation = "HookHoldLight"
 						hookStage = 2.8
 						Global.soundControl.Play("ChargeGraple", 1)
-			else:
-				pass
+			elif graplingHook.pinLocked and !movingToLocation and !graplingHook.flying:
+				chargingHangHook = true
+				hookCharge += 1 * delta
+				
+				var mousePos = get_global_mouse_position()
+				if mousePos.x > position.x:
+					animator.flip_h = false
+				else:
+					animator.flip_h = true
+				
+				if hookCharge >= maxCharge:
+					hookCharge = maxCharge
+					if animator.animation != "HookHoldMax":
+						animator.animation = "HookHoldMax"
+						hookStage = 6
+						Global.soundControl.Play("ChargeGraple", 1.8)
+				else:
+					if animator.animation != "HookHoldLight":
+						animator.animation = "HookHoldLight"
+						hookStage = 2.8
+						Global.soundControl.Play("ChargeGraple", 1)
 	
 	if Input.is_action_just_released('Hook'):
-		if !stunned and !shockwave:
+		if !stunned and !shockwave and !movingToLocation and !graplingHook.flying:
+			print("------")
+			print(movingToLocation)
+			print("------")
 			if canHook:
 				canHook = false
 				graplingHook.Shoot(get_local_mouse_position(), hookStage)
 				hookCharge = 0
-			if graplingHook.hooked:
+			if graplingHook.hooked and graplingHook.flying != true:
 				if graplingHook.hit == "Pin":
 					chargingHangHook = false
 					graplingHook.Shoot(get_local_mouse_position(), hookStage)
 					hookCharge = 0
 				else:
 					graplingHook.Reset()
+			if graplingHook.pinLocked:
+				chargingHangHook = false
+				graplingHook.Shoot(get_local_mouse_position(), hookStage)
+				hookCharge = 0
 	
 	spectralPosition = Vector2.ZERO
 	if !reachedDestination:
@@ -322,13 +366,15 @@ func _physics_process(delta):
 	fadeEffect1.flip_h = animator.flip_h
 	fadeEffect2.flip_h = animator.flip_h
 	
-	
+	if movingToLocation:
+		print(movingToLocation)
 
 func AnimationFinished():
 	if fallFlag and animator.animation != "FallLoop":
 		if animator.animation != "Fell":
-			animator.animation = "FallLoop"
-			fallingLong = true
+			if !graplingHook.hooked and !graplingHook.pinLocked:
+				animator.animation = "FallLoop"
+				fallingLong = true
 	if animator.animation == "HookLight" or animator.animation == "HookHoldLight":
 		#Global.soundControl.StopSound("ChargeGraple")
 		Global.soundControl.Play("ChargeGraple", 1.2)
@@ -348,6 +394,7 @@ func StepTimerInterval():
 		newStepParticle.flip_h = animator.flip_h
 		var randomInflection = Global.rng.randf_range(1.0, 1.4)
 		Global.soundControl.Play("StoneStep", randomInflection)
+		
 
 func UpdateCamera(givenCamera):
 	givenCamera.current = true
@@ -357,3 +404,14 @@ func DisablePlayerAction():
 
 func EnablePlayerAction():
 	stunned = false
+
+func CreateGhost():
+	var newGhost = GHOST.instance()
+	newGhost.animation = animator.animation
+	newGhost.frame = animator.frame
+	newGhost.flip_h = animator.flip_h
+	get_parent().add_child(newGhost)
+	newGhost.position = position
+
+func ShakeScreen(givenDuration, givenFreq, givenMag):
+	get_child(6).get_child(0).Start(givenDuration, givenFreq, givenMag)

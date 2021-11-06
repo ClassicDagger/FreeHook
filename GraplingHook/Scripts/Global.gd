@@ -20,8 +20,19 @@ var birdList = {
 var runTime = 0
 var gemsCollected = []
 
+var combo = 0
+var comboTimer = 100
+var notesGathered = []
+
 func _ready():
 	rng.randomize()
+
+func _process(delta):
+	if combo > 0:
+		comboTimer -= 1
+		if comboTimer <= 0:
+			combo = 0
+			ResetCombo()
 
 func SaveData():
 	var data = {
@@ -54,3 +65,23 @@ func LoadData():
 			birdList = playerData.freedBirds
 			runTime = playerData.playTime
 			gemsCollected = playerData.collectedGems
+
+func Combo(givenNote):
+	soundControl.Play("UIClick", 1 + (0.3 + combo))
+	notesGathered.append(givenNote)
+	comboTimer = 100
+	combo += 1
+	if combo == 5:
+		soundControl.Play("Jingle")
+		
+		while notesGathered.size() != 0:
+			notesGathered[0].FinishNote(5 - notesGathered.size())
+			notesGathered.remove(0)
+		print(notesGathered.size())
+		combo = 0
+		comboTimer = 100
+
+func ResetCombo():
+	for note in notesGathered:
+		note.ResetNote()
+	notesGathered.clear()

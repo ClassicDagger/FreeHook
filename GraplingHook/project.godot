@@ -18,6 +18,7 @@ boot_splash/image="res://Sprites/LoadingScreen.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.121569, 0.054902, 0.109804, 1 )
 config/icon="res://Sprites/Icon.png"
+config/windows_native_icon="res://Sprites/Icon.ico"
 
 [autoload]
 

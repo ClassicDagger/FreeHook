@@ -43,7 +43,7 @@ func PlayerEntered(body):
 			elif talkedCounter == 1:
 				givenTalk = speech2
 			elif body.velocity.y > 10:
-				givenTalk = laughTexts[Global.rng.randi_range(0, 6)]
+				givenTalk = laughTexts[Global.rng.randi_range(0, 5)]
 		
 		if givenTalk != "":
 			TalkSound()

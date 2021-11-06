@@ -26,6 +26,7 @@ extents = Vector2( 59, 9 )
 [node name="OldMan" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 1
 playing = true
 script = ExtResource( 5 )
 

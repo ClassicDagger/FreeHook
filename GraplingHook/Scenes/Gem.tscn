@@ -26,7 +26,7 @@ extents = Vector2( 4, 4 )
 [node name="Gem" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "GemDefault"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 11 )
 
